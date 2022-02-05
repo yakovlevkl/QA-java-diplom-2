@@ -16,7 +16,7 @@ public class CreateUserTest {
             - создать уникального пользователя;
             - создать пользователя, который уже зарегистрирован;
             - создать пользователя и не заполнить одно из обязательных полей.
-     */
+        */
 
     String userName;
     String userPassword;
@@ -36,7 +36,7 @@ public class CreateUserTest {
     @DisplayName("Control return response code and body")
     @Description("Test for /auth/register endpoint")
     public void testCreateUniqueUser() {
-        CreateUser user = new CreateUser(userName ,userPassword, userMail);
+        CreateUser user = new CreateUser(userPassword, userName ,userMail);
         response = user.getResponse();
         assertEquals(200, response.getStatusCode());
     }
@@ -71,7 +71,7 @@ public class CreateUserTest {
 
     @After
     public void rollBck(){
-        Allure.attachment("Server answer: ", String.valueOf(response.getStatusCode()));
-        Allure.attachment("Server answer: ", String.valueOf(response.getBody().prettyPrint()));
+        Allure.attachment("Answer status code: ", String.valueOf(response.getStatusCode()));
+        Allure.attachment("Answer body: ", String.valueOf(response.getBody().prettyPrint()));
     }
 }
