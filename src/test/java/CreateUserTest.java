@@ -1,4 +1,5 @@
 import com.github.javafaker.Faker;
+import io.qameta.allure.Allure;
 import io.qameta.allure.Description;
 import io.qameta.allure.Feature;
 import io.qameta.allure.junit4.DisplayName;
@@ -37,6 +38,8 @@ public class CreateUserTest {
         assertEquals(200, user.getResponse().getStatusCode());
         assertEquals("User already exists",
                 user.getResponse().getBody().jsonPath().getString("message"));
+        Allure.attachment("Server answer: ",
+                String.valueOf(user.getResponse().getBody().prettyPrint()));
     }
 
     @Test
@@ -51,10 +54,12 @@ public class CreateUserTest {
         assertEquals(403, user.getResponse().getStatusCode());
         assertEquals("User already exists",
                 user.getResponse().getBody().jsonPath().getString("message"));
+        Allure.attachment("Server answer: ",
+                String.valueOf(user.getResponse().getBody().prettyPrint()));
     }
 
     @Test
-    @Feature("Создание существующего пользователя")
+    @Feature("Создание пользователя без email")
     @DisplayName("Control return response code and body")
     @Description("Test for /auth/register endpoint")
     public void testCreateUserEmptyEmail() {
@@ -63,10 +68,12 @@ public class CreateUserTest {
         assertEquals(403, user.getResponse().getStatusCode());
         assertEquals("Email, password and name are required fields",
                 user.getResponse().getBody().jsonPath().getString("message"));
-        System.out.println(user.getResponse().getBody().prettyPrint());
+        Allure.attachment("Server answer: ",
+                String.valueOf(user.getResponse().getBody().prettyPrint()));
     }
 
     @After
     public void rollBck(){
+
     }
 }

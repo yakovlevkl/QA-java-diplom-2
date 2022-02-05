@@ -17,12 +17,6 @@ public class CreateUser extends BaseUrl {
         this.userEmail = email;
     }
 
-    public CreateUser() {
-        this.userEmail = "Naruto@email.org";
-        this.userName = "12345";
-        this.userLogin = "Uchiha";
-    }
-
     public JSONObject getJson(){
         return new JSONObject()
                 .put("email", this.userEmail)
@@ -30,7 +24,7 @@ public class CreateUser extends BaseUrl {
                 .put("name", this.userLogin);
     }
 
-    @Step("Create order")
+    @Step("Create user")
     public Response getResponse() {
         JSONObject json = getJson();
         Allure.attachment("Команда на создание пользователя: ", String.valueOf(json));
