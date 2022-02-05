@@ -3,6 +3,7 @@ import io.qameta.allure.Allure;
 import io.qameta.allure.Description;
 import io.qameta.allure.Feature;
 import io.qameta.allure.junit4.DisplayName;
+import io.restassured.response.Response;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
@@ -20,6 +21,7 @@ public class CreateUserTest {
     String userName;
     String userPassword;
     String userMail;
+    Response response;
 
     @Before
     public void setUp() {
@@ -35,11 +37,8 @@ public class CreateUserTest {
     @Description("Test for /auth/register endpoint")
     public void testCreateUniqueUser() {
         CreateUser user = new CreateUser(userName ,userPassword, userMail);
-        assertEquals(200, user.getResponse().getStatusCode());
-        assertEquals("User already exists",
-                user.getResponse().getBody().jsonPath().getString("message"));
-        Allure.attachment("Server answer: ",
-                String.valueOf(user.getResponse().getBody().prettyPrint()));
+        response = user.getResponse();
+        assertEquals(200, response.getStatusCode());
     }
 
     @Test
@@ -51,11 +50,10 @@ public class CreateUserTest {
         userPassword = "Larson";
         userMail = "Paul.Larson@ya.ru";
         CreateUser user = new CreateUser(userName ,userPassword, userMail);
-        assertEquals(403, user.getResponse().getStatusCode());
+        response = user.getResponse();
+        assertEquals(403, response.getStatusCode());
         assertEquals("User already exists",
-                user.getResponse().getBody().jsonPath().getString("message"));
-        Allure.attachment("Server answer: ",
-                String.valueOf(user.getResponse().getBody().prettyPrint()));
+                response.getBody().jsonPath().getString("message"));
     }
 
     @Test
@@ -65,11 +63,10 @@ public class CreateUserTest {
     public void testCreateUserEmptyEmail() {
         userMail = "";
         CreateUser user = new CreateUser(userName ,userPassword, userMail);
-        assertEquals(403, user.getResponse().getStatusCode());
+        response = user.getResponse();
+        assertEquals(403, response.getStatusCode());
         assertEquals("Email, password and name are required fields",
-                user.getResponse().getBody().jsonPath().getString("message"));
-        Allure.attachment("Server answer: ",
-                String.valueOf(user.getResponse().getBody().prettyPrint()));
+                response.getBody().jsonPath().getString("message"));
     }
 
     @After

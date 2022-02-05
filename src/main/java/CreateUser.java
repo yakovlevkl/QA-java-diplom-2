@@ -27,7 +27,7 @@ public class CreateUser extends BaseUrl {
     @Step("Create user")
     public Response getResponse() {
         JSONObject json = getJson();
-        Allure.attachment("Команда на создание пользователя: ", String.valueOf(json));
+        Allure.attachment("New user data: ", String.valueOf(json));
 
         // отправляем запрос на логин курьера возвращаем true или false
         return given()
