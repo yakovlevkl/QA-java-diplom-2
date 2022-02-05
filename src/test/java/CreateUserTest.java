@@ -71,6 +71,7 @@ public class CreateUserTest {
 
     @After
     public void rollBck(){
-
+        Allure.attachment("Server answer: ", String.valueOf(response.getStatusCode()));
+        Allure.attachment("Server answer: ", String.valueOf(response.getBody().prettyPrint()));
     }
 }
