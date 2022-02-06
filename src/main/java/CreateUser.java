@@ -29,11 +29,11 @@ public class CreateUser extends BaseUrl {
         JSONObject json = getJson();
         Allure.attachment("New user data: ", String.valueOf(json));
         Response response = given()
-                .header("Content-type", "application/json")
+                .spec(BaseUrl.getBaseSpec())
                 .and()
                 .body(json.toString())
                 .when()
-                .post(getBaseUrl() +  "/auth/register");
+                .post("/auth/register");
         this.accessToken = response.getBody().jsonPath().getString("accessToken");
         this.refreshToken = response.getBody().jsonPath().getString("refreshToken");
         return response;

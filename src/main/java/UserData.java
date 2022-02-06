@@ -33,20 +33,21 @@ public class UserData extends BaseUrl {
         JSONObject json = getJson();
         Allure.attachment("User data update: ", String.valueOf(json));
         return given()
-                .header("Content-type", "application/json")
+                .spec(BaseUrl.getBaseSpec())
                 .auth().oauth2(this.userToken)
                 .and()
                 .body(json.toString())
                 .when()
-                .patch(getBaseUrl() +  "/auth/user");
+                .patch("/auth/user");
     }
 
     @Step("Get user data")
     public Response getUserData() {
         return given()
+                .spec(BaseUrl.getBaseSpec())
                 .header("Content-type", "application/json")
                 .auth().oauth2(this.userToken)
                 .when()
-                .patch(getBaseUrl() +  "/auth/user");
+                .patch("/auth/user");
     }
 }

@@ -12,9 +12,9 @@ public class OrderUser extends BaseUrl {
     @Step("Get user orders")
     public Response getUserOrders() {
         return given()
-                .header("Content-type", "application/json")
+                .spec(BaseUrl.getBaseSpec())
                 .auth().oauth2(this.userToken)
                 .when()
-                .get(getBaseUrl() +  "/orders/");
+                .get("/orders/");
     }
 }

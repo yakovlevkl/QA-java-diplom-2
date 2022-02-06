@@ -24,19 +24,19 @@ public class CreateOrder extends BaseUrl {
         JSONObject json = getJson(ingredients);
         Allure.attachment("New order data: ", String.valueOf(json));
         return given()
-                .header("Content-type", "application/json")
+                .spec(BaseUrl.getBaseSpec())
                 .auth().oauth2(userToken)
                 .and()
                 .body(json.toString())
                 .when()
-                .post(getBaseUrl() +  "/orders/");
+                .post( "/orders/");
     }
 
     @Step("Get ingredients")
     public Response getIngredients() {
         return given()
-                .header("Content-type", "application/json")
+                .spec(BaseUrl.getBaseSpec())
                 .when()
-                .get(getBaseUrl() +  "/ingredients");
+                .get("/ingredients");
     }
 }

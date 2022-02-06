@@ -24,10 +24,10 @@ public class LoginUser extends BaseUrl {
         JSONObject json = getJson();
         Allure.attachment("User login data: ", String.valueOf(json));
         return given()
-                .header("Content-type", "application/json")
+                .spec(BaseUrl.getBaseSpec())
                 .and()
                 .body(json.toString())
                 .when()
-                .post(getBaseUrl() +  "/auth/login");
+                .post("/auth/login");
     }
 }
