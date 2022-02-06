@@ -1,0 +1,9 @@
+{
+    "success": true,
+    "user": {
+        "email": "edison.simonis@ya.ru",
+        "name": "Edison"
+    },
+    "accessToken": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYxZmZiN2M1OTk5ZmIyMDAxYjZjYzMyNiIsImlhdCI6MTY0NDE0ODY3NywiZXhwIjoxNjQ0MTQ5ODc3fQ.EjcVUAV4EEXti_yerRUDRue3uxkrZcgfWI_ukMMaCko",
+    "refreshToken": "33a72631f2395478f56083d29bf24ed4245b8fa08f28461f54ed7efbd905980f9cf3b62bb1fafe7c"
+}

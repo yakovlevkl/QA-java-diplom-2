@@ -1,0 +1,9 @@
+{
+    "success": true,
+    "accessToken": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYxZmU0MzZlOTk5ZmIyMDAxYjZjYjI0NiIsImlhdCI6MTY0NDE0ODQ4MSwiZXhwIjoxNjQ0MTQ5NjgxfQ.14aHGBfGk_yATml-yZc4QNVTM5dRHag_ooL6C-Ixvbk",
+    "refreshToken": "c2005ba37d607836b6f890648ac7eb6e24fd97ed009c2bc25cd005b93b14bad2e0d0193b79bb28be",
+    "user": {
+        "email": "laureen.leannon@ya.ru",
+        "name": "Laureen"
+    }
+}

@@ -1,0 +1,9 @@
+{
+    "success": true,
+    "user": {
+        "email": "derick.simonis@ya.ru",
+        "name": "Simonis"
+    },
+    "accessToken": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYxZmUzODY2OTk5ZmIyMDAxYjZjYjFhNyIsImlhdCI6MTY0NDA1MDUzNCwiZXhwIjoxNjQ0MDUxNzM0fQ.CzSevhAoGMW6NtxhYfwIHoj4iJ2-9IzNKl-qAHTxO-4",
+    "refreshToken": "12c3c09d97106e0d39d7ffb673f884fa067edd2e9ed33f8081809dd671d93203be6427789694162a"
+}

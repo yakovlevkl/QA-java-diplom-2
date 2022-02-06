@@ -1,0 +1,20 @@
+{
+    "success": true,
+    "orders": [
+        {
+            "_id": "61ffb619999fb2001b6cc2e3",
+            "ingredients": [
+                "61c0c5a71d1f82001bdaaa6f",
+                "61c0c5a71d1f82001bdaaa72",
+                "61c0c5a71d1f82001bdaaa73"
+            ],
+            "status": "done",
+            "name": "Бессмертный space spicy бургер",
+            "createdAt": "2022-02-06T11:50:49.009Z",
+            "updatedAt": "2022-02-06T11:50:49.070Z",
+            "number": 3848
+        }
+    ],
+    "total": 3474,
+    "totalToday": 45
+}

@@ -1,0 +1,9 @@
+{
+    "success": true,
+    "user": {
+        "email": "mack.block@ya.ru",
+        "name": "Mack"
+    },
+    "accessToken": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYxZmZiNzAwOTk5ZmIyMDAxYjZjYzMwZiIsImlhdCI6MTY0NDE0ODQ4MCwiZXhwIjoxNjQ0MTQ5NjgwfQ.Pz-0o3PWxB_k7fssNNKau8_ZseBrBe6-LRgkg0MOCnM",
+    "refreshToken": "4bacb1f3fe898b781421fdfac9787b86fdd2498e2ea51ea1eeb97141a865567e05c1dc8387d17bda"
+}
