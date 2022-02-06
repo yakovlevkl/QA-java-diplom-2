@@ -41,6 +41,7 @@ public class CreateUserTest {
         user = new CreateUser(userPassword, userName ,userMail);
         response = user.getResponse();
         assertEquals(200, response.getStatusCode());
+        user.delete();
     }
 
     @Test
@@ -75,8 +76,6 @@ public class CreateUserTest {
     public void rollBck(){
         Allure.attachment("Answer status code: ", String.valueOf(response.getStatusCode()));
         Allure.attachment("Answer body: ", String.valueOf(response.getBody().prettyPrint()));
-        if (user != null) {
-            user.delete();
-        }
+
     }
 }

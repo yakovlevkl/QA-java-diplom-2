@@ -86,7 +86,7 @@ public class UpdateUserDataTest {
         Allure.attachment("Answer status code: ", String.valueOf(response.getStatusCode()));
         Allure.attachment("Answer body: ", String.valueOf(response.getBody().prettyPrint()));
         if (user != null) {
-            user.delete();
+
         }
     }
 }
