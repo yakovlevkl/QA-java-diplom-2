@@ -29,6 +29,7 @@ public class CreateUserTest {
         userName = faker.name().firstName(); // Emory
         userPassword = faker.name().lastName(); // Barton
         userMail = userName + "." + userPassword + "@ya.ru"; // Emory.Barton@ya.ru
+
     }
 
     @Test

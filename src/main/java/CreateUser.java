@@ -9,6 +9,8 @@ public class CreateUser extends BaseUrl {
     String userPassword;
     String userEmail;
     String userLogin;
+    String accessToken;
+    String refreshToken;
 
     public CreateUser(String password, String login, String email) {
         this.userPassword = password;
@@ -28,12 +30,26 @@ public class CreateUser extends BaseUrl {
         JSONObject json = getJson();
         Allure.attachment("New user data: ", String.valueOf(json));
 
-        // отправляем запрос на создание пользователя
-        return given()
+        Response response = given()
                 .header("Content-type", "application/json")
                 .and()
                 .body(json.toString())
                 .when()
                 .post(getBaseUrl() +  "/auth/register");
+        this.accessToken = response.getBody().jsonPath().getString("accessToken");
+        this.refreshToken = response.getBody().jsonPath().getString("refreshToken");
+
+        // отправляем запрос на создание пользователя
+        return response;
+    }
+
+    @Step("Get access token")
+    public String getAccessToken() {
+        return this.accessToken.split(" ")[1];
+    }
+
+    @Step("Get refresh token")
+    public String getRefreshToken() {
+        return this.refreshToken;
     }
 }

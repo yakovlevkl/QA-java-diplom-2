@@ -1,4 +1,3 @@
-import com.github.javafaker.Faker;
 import io.qameta.allure.Allure;
 import io.qameta.allure.Description;
 import io.qameta.allure.Feature;
@@ -19,17 +18,10 @@ public class LoginUserTest {
 
     String userPassword;
     String userMail;
-    String userName;
     Response response;
 
     @Before
     public void setUp() {
-        Faker faker = new Faker();
-        userName = faker.name().firstName(); // Emory
-        userPassword = faker.name().lastName(); // Barton
-        userMail = userName + "." + userPassword + "@ya.ru"; // Emory.Barton@ya.ru
-        CreateUser user = new CreateUser(userPassword, userName, userMail);
-        user.getResponse();
     }
 
     @Test
@@ -37,8 +29,10 @@ public class LoginUserTest {
     @DisplayName("Control return response code and body")
     @Description("Test for /auth/login endpoint")
     public void testLoginUser() {
+        userMail = "Laureen.Leannon@ya.ru";
+        userPassword = "Leannon";
         LoginUser user = new LoginUser(userMail, userPassword);
-        response = user.getResponse();
+        response = user.getResponseLogin();
         assertEquals(200, response.getStatusCode());
     }
 
@@ -50,11 +44,10 @@ public class LoginUserTest {
         userMail = "userMail";
         userPassword = "userPassword";
         LoginUser user = new LoginUser(userMail, userPassword);
-        response = user.getResponse();
+        response = user.getResponseLogin();
         assertEquals(401, response.getStatusCode());
         assertEquals("email or password are incorrect",
                 response.getBody().jsonPath().getString("message"));
-        System.out.println(response);
     }
 
     @After

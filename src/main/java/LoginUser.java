@@ -21,7 +21,7 @@ public class LoginUser extends BaseUrl {
     }
 
     @Step("Login user")
-    public Response getResponse() {
+    public Response getResponseLogin() {
         JSONObject json = getJson();
         Allure.attachment("User login data: ", String.valueOf(json));
 
@@ -33,4 +33,5 @@ public class LoginUser extends BaseUrl {
                 .when()
                 .post(getBaseUrl() +  "/auth/login");
     }
+
 }
