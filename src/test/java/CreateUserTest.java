@@ -34,7 +34,7 @@ public class CreateUserTest {
 
     @Test
     @Feature("Создание пользователя")
-    @DisplayName("Control return response code and body")
+    @DisplayName("Создание пользователя")
     @Description("Test for /auth/register endpoint")
     public void testCreateUniqueUser() {
         CreateUser user = new CreateUser(userPassword, userName ,userMail);
@@ -44,7 +44,7 @@ public class CreateUserTest {
 
     @Test
     @Feature("Создание существующего пользователя")
-    @DisplayName("Control return response code and body")
+    @DisplayName("Создание существующего пользователя")
     @Description("Test for /auth/register endpoint")
     public void testCreateExistingUser() {
         userName = "Paul";
@@ -59,7 +59,7 @@ public class CreateUserTest {
 
     @Test
     @Feature("Создание пользователя без email")
-    @DisplayName("Control return response code and body")
+    @DisplayName("Создание пользователя без email")
     @Description("Test for /auth/register endpoint")
     public void testCreateUserEmptyEmail() {
         userMail = "";

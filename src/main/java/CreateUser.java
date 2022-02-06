@@ -2,7 +2,6 @@ import io.qameta.allure.Allure;
 import io.qameta.allure.Step;
 import io.restassured.response.Response;
 import org.json.JSONObject;
-
 import static io.restassured.RestAssured.given;
 
 public class CreateUser extends BaseUrl {
@@ -29,7 +28,6 @@ public class CreateUser extends BaseUrl {
     public Response getResponse() {
         JSONObject json = getJson();
         Allure.attachment("New user data: ", String.valueOf(json));
-
         Response response = given()
                 .header("Content-type", "application/json")
                 .and()
@@ -38,8 +36,6 @@ public class CreateUser extends BaseUrl {
                 .post(getBaseUrl() +  "/auth/register");
         this.accessToken = response.getBody().jsonPath().getString("accessToken");
         this.refreshToken = response.getBody().jsonPath().getString("refreshToken");
-
-        // отправляем запрос на создание пользователя
         return response;
     }
 

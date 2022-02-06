@@ -2,7 +2,6 @@ import io.qameta.allure.Allure;
 import io.qameta.allure.Step;
 import io.restassured.response.Response;
 import org.json.JSONObject;
-
 import static io.restassured.RestAssured.given;
 
 public class LoginUser extends BaseUrl {
@@ -24,8 +23,6 @@ public class LoginUser extends BaseUrl {
     public Response getResponseLogin() {
         JSONObject json = getJson();
         Allure.attachment("User login data: ", String.valueOf(json));
-
-        // отправляем запрос на логин пользователя
         return given()
                 .header("Content-type", "application/json")
                 .and()
@@ -33,5 +30,4 @@ public class LoginUser extends BaseUrl {
                 .when()
                 .post(getBaseUrl() +  "/auth/login");
     }
-
 }

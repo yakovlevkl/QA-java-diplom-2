@@ -45,7 +45,7 @@ public class UpdateUserDataTest {
 
     @Test
     @Feature("Изменение данных авторизированного пользователя")
-    @DisplayName("Control return response code and body")
+    @DisplayName("Изменение данных авторизированного пользователя")
     @Description("Test for /auth/user endpoint")
     public void testChangedDataAuthorizedUser() {
         UserData user = new UserData(
@@ -64,12 +64,11 @@ public class UpdateUserDataTest {
 
     @Test
     @Feature("Изменение данных не авторизированного пользователя")
-    @DisplayName("Control return response code and body")
+    @DisplayName("Изменение данных не авторизированного пользователя")
     @Description("Test for /auth/user endpoint")
     public void testChangedDataNotAuthorizedUser() {
-        userAccessToken = "";
         UserData user = new UserData(
-                userAccessToken, newUserMail, newUserPassword, newUserName);
+                "", newUserMail, newUserPassword, newUserName);
         response = user.reformUserData();
 
         // Проврка кода отказа изменения данных пользователя

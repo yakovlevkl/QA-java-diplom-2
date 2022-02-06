@@ -26,7 +26,7 @@ public class LoginUserTest {
 
     @Test
     @Feature("Авторизация пользователя")
-    @DisplayName("Control return response code and body")
+    @DisplayName("Авторизация пользователя")
     @Description("Test for /auth/login endpoint")
     public void testLoginUser() {
         userMail = "Laureen.Leannon@ya.ru";
@@ -38,7 +38,7 @@ public class LoginUserTest {
 
     @Test
     @Feature("Авторизация пользователя с неверным логином и паролем")
-    @DisplayName("Control return response code and body")
+    @DisplayName("Авторизация пользователя с неверным логином и паролем")
     @Description("Test for /auth/login endpoint")
     public void testLoginIncorrectUser() {
         userMail = "userMail";
