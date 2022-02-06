@@ -39,9 +39,9 @@ public class UpdateUserDataTest {
         user = new CreateUser(userPassword, userName ,userMail);
         response = user.getResponse();
         userAccessToken = user.getAccessToken();
-        newUserName = "new_test_qa";
-        newUserMail = "new_test_qa@ya.com";
-        newUserPassword = "test_qa";
+        newUserName = "new_test_qa_";
+        newUserMail = "new_test_qa_@ya.com";
+        newUserPassword = "test_qa_";
     }
 
     @Test
@@ -85,8 +85,6 @@ public class UpdateUserDataTest {
     public void rollBck() {
         Allure.attachment("Answer status code: ", String.valueOf(response.getStatusCode()));
         Allure.attachment("Answer body: ", String.valueOf(response.getBody().prettyPrint()));
-        if (user != null) {
-
-        }
+        user.delete();
     }
 }

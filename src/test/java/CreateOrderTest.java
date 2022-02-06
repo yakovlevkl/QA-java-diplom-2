@@ -94,8 +94,6 @@ public class CreateOrderTest {
     public void rollBck() {
         Allure.attachment("Answer status code: ", String.valueOf(response.getStatusCode()));
         Allure.attachment("Answer body: ", String.valueOf(response.getBody().prettyPrint()));
-        if (user != null) {
-            user.delete();
-        }
+        user.delete();
     }
 }
