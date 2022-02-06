@@ -22,6 +22,7 @@ public class CreateUserTest {
     String userPassword;
     String userMail;
     Response response;
+    CreateUser user;
 
     @Before
     public void setUp() {
@@ -37,7 +38,7 @@ public class CreateUserTest {
     @DisplayName("Создание пользователя")
     @Description("Test for /auth/register endpoint")
     public void testCreateUniqueUser() {
-        CreateUser user = new CreateUser(userPassword, userName ,userMail);
+        user = new CreateUser(userPassword, userName ,userMail);
         response = user.getResponse();
         assertEquals(200, response.getStatusCode());
     }
@@ -50,7 +51,7 @@ public class CreateUserTest {
         userName = "Paul";
         userPassword = "Larson";
         userMail = "Paul.Larson@ya.ru";
-        CreateUser user = new CreateUser(userName ,userPassword, userMail);
+        user = new CreateUser(userName ,userPassword, userMail);
         response = user.getResponse();
         assertEquals(403, response.getStatusCode());
         assertEquals("User already exists",
@@ -63,7 +64,7 @@ public class CreateUserTest {
     @Description("Test for /auth/register endpoint")
     public void testCreateUserEmptyEmail() {
         userMail = "";
-        CreateUser user = new CreateUser(userName ,userPassword, userMail);
+        user = new CreateUser(userName ,userPassword, userMail);
         response = user.getResponse();
         assertEquals(403, response.getStatusCode());
         assertEquals("Email, password and name are required fields",
@@ -74,5 +75,8 @@ public class CreateUserTest {
     public void rollBck(){
         Allure.attachment("Answer status code: ", String.valueOf(response.getStatusCode()));
         Allure.attachment("Answer body: ", String.valueOf(response.getBody().prettyPrint()));
+        if (user != null) {
+            user.delete();
+        }
     }
 }

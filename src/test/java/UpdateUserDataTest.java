@@ -20,6 +20,7 @@ public class UpdateUserDataTest {
     String userName;
     String userAccessToken;
     Response response;
+    CreateUser user;
 
     @Before
     public void setUp() {
@@ -35,7 +36,7 @@ public class UpdateUserDataTest {
         userMail = userName + "." + userPassword + "@ya.ru"; // Emory.Barton@ya.ru
 
         // Создаем пользователя, запоминаем токен доступа.
-        CreateUser user = new CreateUser(userPassword, userName ,userMail);
+        user = new CreateUser(userPassword, userName ,userMail);
         response = user.getResponse();
         userAccessToken = user.getAccessToken();
         newUserName = "new_test_qa";
@@ -84,9 +85,8 @@ public class UpdateUserDataTest {
     public void rollBck() {
         Allure.attachment("Answer status code: ", String.valueOf(response.getStatusCode()));
         Allure.attachment("Answer body: ", String.valueOf(response.getBody().prettyPrint()));
-        UserData user = new UserData(
-                userAccessToken, userMail, userPassword, userName);
-        // Откатываем изменения пользователя, т.к. требуется убрать тестовый email из БД
-        response = user.reformUserData();
+        if (user != null) {
+            user.delete();
+        }
     }
 }

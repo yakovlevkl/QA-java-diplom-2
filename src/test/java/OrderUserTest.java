@@ -22,6 +22,7 @@ public class OrderUserTest {
     Response response;
     CreateOrder order;
     String[] id;
+    CreateUser user;
 
     public static int randomIndex() {
         return (int) (Math.random() * 10);
@@ -40,7 +41,7 @@ public class OrderUserTest {
         userMail = userName + "." + userPassword + "@ya.ru"; // Emory.Barton@ya.ru
 
         // Создаем пользователя, запоминаем токен доступа.
-        CreateUser user = new CreateUser(userPassword, userName ,userMail);
+        user = new CreateUser(userPassword, userName ,userMail);
         response = user.getResponse();
         userAccessToken = user.getAccessToken();
 
@@ -81,5 +82,8 @@ public class OrderUserTest {
     public void rollBck() {
         Allure.attachment("Answer status code: ", String.valueOf(response.getStatusCode()));
         Allure.attachment("Answer body: ", String.valueOf(response.getBody().prettyPrint()));
+        if (user != null) {
+            user.delete();
+        }
     }
 }

@@ -50,4 +50,5 @@ public class UserData extends BaseUrl {
                 .when()
                 .patch("/auth/user");
     }
+
 }

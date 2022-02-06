@@ -10,6 +10,7 @@ public class CreateUser extends BaseUrl {
     String userLogin;
     String accessToken;
     String refreshToken;
+    Response response;
 
     public CreateUser(String password, String login, String email) {
         this.userPassword = password;
@@ -48,4 +49,19 @@ public class CreateUser extends BaseUrl {
     public String getRefreshToken() {
         return this.refreshToken;
     }
+
+    @Step("Delete user")
+    public void delete() {
+        Allure.attachment("User access token: ", String.valueOf(getAccessToken()));
+        if (getAccessToken() != null) {
+            given()
+                    .spec(BaseUrl.getBaseSpec())
+                    .auth().oauth2(getAccessToken())
+                    .when()
+                    .delete("auth/user")
+                    .then()
+                    .statusCode(202);
+        }
+    }
+
 }
