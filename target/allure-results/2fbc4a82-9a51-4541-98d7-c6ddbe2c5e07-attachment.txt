@@ -1,9 +1,0 @@
-{
-    "success": true,
-    "user": {
-        "email": "tracy.ryan@ya.ru",
-        "name": "Tracy"
-    },
-    "accessToken": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYxZmZjMGJkOTk5ZmIyMDAxYjZjYzU3OCIsImlhdCI6MTY0NDE1MDk3MywiZXhwIjoxNjQ0MTUyMTczfQ.dSIjHluSDvH7VnjDDa5d36VJWA9nDpxUHCOCRxthsZk",
-    "refreshToken": "f44585aa3a17bcdb7cee03e7362cedd1f12104cae8ac490468e2ac4fb94510da65dabf9cbbb3735f"
-}

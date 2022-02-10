@@ -4,11 +4,11 @@ import io.restassured.response.Response;
 import org.json.JSONObject;
 import static io.restassured.RestAssured.given;
 
-public class LoginUser extends BaseUrl {
-    String userEmail;
-    String userPassword;
+public class LoginUser extends BaseUrls {
+    private String userEmail;
+    private String userPassword;
 
-    public LoginUser(String email, String password) {
+    LoginUser(String email, String password) {
         this.userEmail = email;
         this.userPassword = password;
     }
@@ -20,14 +20,14 @@ public class LoginUser extends BaseUrl {
     }
 
     @Step("Login user")
-    public Response getResponseLogin() {
+    Response getResponseLogin() {
         JSONObject json = getJson();
         Allure.attachment("User login data: ", String.valueOf(json));
         return given()
-                .spec(BaseUrl.getBaseSpec())
+                .spec(getBaseSpec())
                 .and()
                 .body(json.toString())
                 .when()
-                .post("/auth/login");
+                .post(getLoginUserUrl());
     }
 }

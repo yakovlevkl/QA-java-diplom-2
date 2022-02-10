@@ -5,16 +5,16 @@ import org.json.JSONObject;
 
 import static io.restassured.RestAssured.given;
 
-public class UserData extends BaseUrl {
-    String userToken;
-    String userMail;
-    String userPassword;
-    String userLogin;
+public class UserData extends BaseUrls {
+    private String userToken;
+    private String userMail;
+    private String userPassword;
+    private String userLogin;
 
-    public UserData(String token,
-                    String userMail,
-                    String userPassword,
-                    String userLogin) {
+    UserData(String token,
+             String userMail,
+             String userPassword,
+             String userLogin) {
         this.userToken = token;
         this.userMail = userMail;
         this.userPassword = userPassword;
@@ -29,26 +29,26 @@ public class UserData extends BaseUrl {
     }
 
     @Step("Reform user data")
-    public Response reformUserData() {
+    Response reformUserData() {
         JSONObject json = getJson();
         Allure.attachment("User data update: ", String.valueOf(json));
         return given()
-                .spec(BaseUrl.getBaseSpec())
+                .spec(getBaseSpec())
                 .auth().oauth2(this.userToken)
                 .and()
                 .body(json.toString())
                 .when()
-                .patch("/auth/user");
+                .patch(getAuthUserUrl());
     }
 
     @Step("Get user data")
-    public Response getUserData() {
+    Response getUserData() {
         return given()
-                .spec(BaseUrl.getBaseSpec())
+                .spec(getBaseSpec())
                 .header("Content-type", "application/json")
                 .auth().oauth2(this.userToken)
                 .when()
-                .patch("/auth/user");
+                .patch(getAuthUserUrl());
     }
 
 }

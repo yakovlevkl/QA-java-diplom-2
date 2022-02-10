@@ -1,9 +1,0 @@
-{
-    "success": true,
-    "user": {
-        "email": "deena.mohr@ya.ru",
-        "name": "Deena"
-    },
-    "accessToken": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYxZmU0MzEwOTk5ZmIyMDAxYjZjYjIzYSIsImlhdCI6MTY0NDA1MzI2NCwiZXhwIjoxNjQ0MDU0NDY0fQ.KDdkh04MCIcHgZN8441FxoH4VI663aD-RzbCpC_ApCA",
-    "refreshToken": "95b8f74560ec60bda1f643f55f0ef4b398b4f677ef28588a6c2eddb3241fffee0ff7133b1b75e57e"
-}

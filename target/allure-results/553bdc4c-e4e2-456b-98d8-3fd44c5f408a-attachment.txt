@@ -1,9 +1,0 @@
-{
-    "success": true,
-    "user": {
-        "email": "lindsy.armstrong@ya.ru",
-        "name": "Lindsy"
-    },
-    "accessToken": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYxZmZiODRmOTk5ZmIyMDAxYjZjYzM1MiIsImlhdCI6MTY0NDE0ODgxNSwiZXhwIjoxNjQ0MTUwMDE1fQ.Kr4GINrNoEW28az0xdR6ezKJjz3fPqrbG2Ow1grq488",
-    "refreshToken": "22a8e5263e34b1665ebbd966226135206ea66095472b685ec967e7548fbe0fc6de4010baab737f51"
-}

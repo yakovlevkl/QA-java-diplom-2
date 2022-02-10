@@ -1,9 +1,0 @@
-{
-    "success": true,
-    "user": {
-        "email": "germaine.jacobson@ya.ru",
-        "name": "Germaine"
-    },
-    "accessToken": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYxZmZiN2VhOTk5ZmIyMDAxYjZjYzMzYyIsImlhdCI6MTY0NDE0ODcxNCwiZXhwIjoxNjQ0MTQ5OTE0fQ.azQrbp-hntyQa9nHfT8-5l7TdnGMBf32t9JduLVtG4A",
-    "refreshToken": "16ce9448b306a2f604842011925d1848b8ee6cc29a18fd5c0d794cb72108cacbfcb57dbea1d11fa9"
-}

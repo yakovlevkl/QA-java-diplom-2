@@ -1,1 +1,0 @@
-{"password":"test_qa","name":"new_test_qa","email":"new_test_qa@ya.com"}

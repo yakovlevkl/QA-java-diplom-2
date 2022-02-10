@@ -1,9 +1,0 @@
-{
-    "success": true,
-    "accessToken": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYxZmU0MzZlOTk5ZmIyMDAxYjZjYjI0NiIsImlhdCI6MTY0NDE0ODY3NywiZXhwIjoxNjQ0MTQ5ODc3fQ.ZBfSURBeaSbNnFskiIs0CbZtbOrFS8_BxKv28FJfoJU",
-    "refreshToken": "3d18b71e0ac5f27650ebcb2e0dd5f836c72b8fc1e7748df092c31a0f31c0d315c428b086c3bc0540",
-    "user": {
-        "email": "laureen.leannon@ya.ru",
-        "name": "Laureen"
-    }
-}

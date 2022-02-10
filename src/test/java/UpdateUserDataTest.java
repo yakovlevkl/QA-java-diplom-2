@@ -1,48 +1,17 @@
-import com.github.javafaker.Faker;
-import io.qameta.allure.Allure;
 import io.qameta.allure.Description;
 import io.qameta.allure.Feature;
 import io.qameta.allure.junit4.DisplayName;
-import io.restassured.response.Response;
-import org.junit.After;
-import org.junit.Before;
 import org.junit.Test;
 
 import static org.junit.Assert.assertEquals;
 
-public class UpdateUserDataTest {
+public class UpdateUserDataTest extends BeforeTests {
 
-    String newUserName;
-    String newUserMail;
-    String newUserPassword;
-    String userPassword;
-    String userMail;
-    String userName;
-    String userAccessToken;
-    Response response;
-    CreateUser user;
-
-    @Before
-    public void setUp() {
         /*
             Изменение данных пользователя:
                - с авторизацией,
                - без авторизации,
         */
-        // Сгенерим фейковые данный пользователя
-        Faker faker = new Faker();
-        userName = faker.name().firstName(); // Emory
-        userPassword = faker.name().lastName(); // Barton
-        userMail = userName + "." + userPassword + "@ya.ru"; // Emory.Barton@ya.ru
-
-        // Создаем пользователя, запоминаем токен доступа.
-        user = new CreateUser(userPassword, userName ,userMail);
-        response = user.getResponse();
-        userAccessToken = user.getAccessToken();
-        newUserName = "new_test_qa_";
-        newUserMail = "new_test_qa_@ya.com";
-        newUserPassword = "test_qa_";
-    }
 
     @Test
     @Feature("Изменение данных авторизированного пользователя")
@@ -50,7 +19,7 @@ public class UpdateUserDataTest {
     @Description("Test for /auth/user endpoint")
     public void testChangedDataAuthorizedUser() {
         UserData user = new UserData(
-                userAccessToken, newUserMail, newUserPassword, newUserName);
+                accessToken, newUserMail, newUserPassword, newUserName);
         response = user.reformUserData();
 
         // Проврка успешного изменения данных пользователя
@@ -81,10 +50,4 @@ public class UpdateUserDataTest {
                 response.getBody().jsonPath().getString("message"));
     }
 
-    @After
-    public void rollBck() {
-        Allure.attachment("Answer status code: ", String.valueOf(response.getStatusCode()));
-        Allure.attachment("Answer body: ", String.valueOf(response.getBody().prettyPrint()));
-        user.delete();
-    }
 }

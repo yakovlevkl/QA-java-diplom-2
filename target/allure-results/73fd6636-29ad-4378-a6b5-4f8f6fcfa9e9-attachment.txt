@@ -1,9 +1,0 @@
-{
-    "success": true,
-    "accessToken": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYxZmU0MzExOTk5ZmIyMDAxYjZjYjIzYyIsImlhdCI6MTY0NDA1MzI2NSwiZXhwIjoxNjQ0MDU0NDY1fQ.dY0IpEbhsGZ70T3B24v-Vl8urLqttTneXIr_pXLP2Do",
-    "refreshToken": "2bb09bd0c7b29aaf36143a269b10e574892f52fd1500337a96d833da665e9a666438b300eb676421",
-    "user": {
-        "email": "aileen.boyle@ya.ru",
-        "name": "Aileen"
-    }
-}
